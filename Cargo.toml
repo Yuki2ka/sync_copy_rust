@@ -1,0 +1,20 @@
+[package]
+name = "sync_copy"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+anyhow = "*"
+blake3 = "*"
+fltk = "*"
+rdev = "*"
+rfd = "*"
+trash = "*"
+walkdir = "*"
+
+[target.'cfg(windows)'.dependencies]
+clipboard-win = "*"
+winapi = { version = "*", features = ["shellapi", "winuser", "winbase", "synchapi"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+percent-encoding = "*"
